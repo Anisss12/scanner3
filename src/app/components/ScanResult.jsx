@@ -28,8 +28,8 @@ const ScanResult = ({ result, onAddToList, onScanAgain }) => {
           throw new Error("Network response was not ok");
         }
         const result = await response.json();
-        setData(result);
-        setFilteredData(result); // Initialize filtered data with all data
+        setData(result.data);
+        setFilteredData(result.data); // Initialize filtered data with all data
       } catch (error) {
         console.error("Fetch error:", error);
       }
