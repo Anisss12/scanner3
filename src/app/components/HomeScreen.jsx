@@ -31,8 +31,10 @@ const HomeScreen = ({ onShowForm }) => {
       let totalUnits = 0;
 
       parsedData.forEach((item) => {
-        totalPrice += item.price; // Assuming quantity means price sum
-        totalUnits += item.quantity; // Assuming unit is a valid key
+    
+
+            totalPrice += Number(item.price) || 0;  // Ensure it's a number
+      totalUnits += Number(item.quantity) || 0;  // Ensure it's a number
       });
 
       setPrice((prevPrice) => prevPrice + totalPrice);
