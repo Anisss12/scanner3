@@ -1,0 +1,210 @@
+.overlay {
+  position: fixed;
+  inset: 0;
+  backdrop-filter: blur(18px);
+  z-index: 50;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100vw;
+  overflow: hidden;
+  background: rgba(0, 0, 0, 0.388);
+  height: 100vh;
+}
+
+.wrapper {
+  height: fit-content;
+  width: 90%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background: var(--primary-bg);
+  margin-top: 5vh;
+  overflow-y: scroll;
+  height: 80vh;
+  border-radius: 1vh;
+  border: 1px solid var(--border-color);
+  padding: 2vh;
+  gap: 2vh;
+}
+
+.barCode {
+  display: flex;
+  gap: 2vh;
+  flex-direction: column;
+}
+.barCode button {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0.5vh;
+  background: none;
+  border: none;
+}
+
+.container {
+  overflow: hidden;
+  width: 100%;
+}
+
+.videoWrapper {
+  height: 15vh;
+  width: 100%;
+  border-radius: 1vh;
+}
+
+.video {
+  height: 100%;
+  width: 100%;
+  object-fit: cover;
+  border-radius: 1vh;
+}
+
+.scannerCorner {
+  position: absolute;
+  width: 1.5rem;
+  height: 1.5rem;
+  border-color: var(--scanner-primary);
+}
+
+.topLeft {
+  top: 0.75rem;
+  left: 0.75rem;
+  border-left-width: 0.25rem;
+  border-top-width: 0.25rem;
+  border-top-left-radius: 0.5rem;
+}
+
+.topRight {
+  top: 0.75rem;
+  right: 0.75rem;
+  border-right-width: 0.25rem;
+  border-top-width: 0.25rem;
+  border-top-right-radius: 0.5rem;
+}
+
+.bottomLeft {
+  bottom: 0.75rem;
+  left: 0.75rem;
+  border-left-width: 0.25rem;
+  border-bottom-width: 0.25rem;
+  border-bottom-left-radius: 0.5rem;
+}
+
+.bottomRight {
+  bottom: 0.75rem;
+  right: 0.75rem;
+  border-right-width: 0.25rem;
+  border-bottom-width: 0.25rem;
+  border-bottom-right-radius: 0.5rem;
+}
+
+.scanLine {
+  position: absolute;
+  left: 0;
+  right: 0;
+  height: 0.125rem;
+  background-color: rgba(var(--scanner-primary), 0.7);
+  animation: scan-line 2s infinite;
+}
+
+@keyframes fade-in {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes scan-line {
+  0% {
+    top: 0;
+  }
+  50% {
+    top: 100%;
+  }
+  100% {
+    top: 0;
+  }
+}
+
+.overlay input {
+  height: 5vh;
+  width: 100%;
+  padding-left: 2vh;
+}
+
+.overlay h2 {
+  font-size: 2vh;
+}
+
+.design,
+.sizes,
+.colors,
+.price {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 1vh;
+  padding-top: 2vh;
+  text-transform: uppercase;
+}
+
+.colors ul,
+.sizes ul {
+  list-style: none;
+  display: flex;
+  flex-direction: row;
+  gap: 0.2vh;
+  border-radius: 1vh;
+  background: gray;
+  color: black;
+  gap: 0.3vh;
+  padding: 0.5vh;
+  flex-wrap: wrap;
+}
+.colors ul li,
+.sizes ul li {
+  list-style: none;
+  display: flex;
+  flex-direction: row;
+  gap: 0.2vh;
+  color: black;
+  gap: 0.3vh;
+  background: black;
+  color: white;
+  justify-content: center;
+  align-items: center;
+  padding: 0.5vh;
+  border-radius: 1vh;
+}
+
+.field {
+  display: flex;
+  flex-direction: row;
+  gap: 1vh;
+}
+
+.otherFiled {
+  display: flex;
+  width: 100%;
+  align-items: center;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.submitBtn {
+  width: 100%;
+  padding-top: 2vh;
+}
+
+.submitBtn button {
+  height: 5vh;
+  width: 100%;
+  font-weight: 700;
+  font-size: 2vh;
+  text-transform: uppercase;
+}

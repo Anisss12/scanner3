@@ -1,0 +1,58 @@
+.tabBar {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 5rem;
+  background-color: var(--secondary-bg);
+  backdrop-filter: blur(10px);
+  border-top: 1px solid rgba(var(--scanner-dark), 0.05);
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  z-index: 40;
+}
+
+.activeTab {
+  position: absolute;
+  bottom: 0;
+  height: 0.25rem;
+  width: 25%;
+  background-color: var(--scanner-primary);
+  transition: transform 0.3s ease-in-out;
+}
+
+.tabButton {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 5rem;
+  height: 5rem;
+  transition: opacity 0.3s ease-in-out;
+  background-color: var(--secondary-bg);
+  border: none;
+}
+
+.tabButtonActive {
+  opacity: 1;
+}
+
+.tabButtonInactive {
+  opacity: 0.5;
+}
+
+.tabButton:hover .icon {
+  font-size: 6vh;
+}
+
+.icon {
+  color: var(--scanner-dark);
+  margin-bottom: 0.25rem;
+  transition: font-size 0.3s ease-in-out;
+}
+
+.label {
+  font-size: 0.75rem;
+  font-weight: 500;
+}

@@ -1,0 +1,102 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: fit-content;
+  animation: scale-in 0.5s ease-in-out;
+  width: 100%;
+  padding-top: 5vh;
+}
+
+.dashBoard {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  gap: 2vh;
+  flex-wrap: wrap;
+}
+
+.dashBoard h2 {
+  font-size: 2vh;
+}
+
+.totalStock,
+.totalUnitOrderd,
+.totalItemOrderd,
+.totalRevenue {
+  width: 45%;
+  height: 12vh;
+  padding: 2vh;
+  border-radius: 1vh;
+  background: var(--primary-bg);
+  border: 1px solid var(--border-color);
+  color: var(--secondary-text);
+  text-transform: uppercase;
+}
+
+.box {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 2vh;
+}
+
+.box h2 {
+  font-size: 2.5vh;
+  color: white;
+}
+.card {
+  width: 100%;
+  height: 12rem;
+  border-radius: 50%;
+  background: var(--card-glass);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  box-shadow: var(--shadow-xl);
+  transition: all 0.3s ease-in-out;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  gap: 2vh;
+}
+
+.addItem {
+  width: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 20vh;
+  border-radius: 2vh;
+  display: flex;
+  flex-direction: column;
+  background: var(--border-color);
+}
+
+.addItem:nth-child(1) {
+  border: 1px solid var(--border-color);
+}
+
+.addItem h2 {
+  font-size: 2vh;
+}
+
+.title {
+  font-size: 1.125rem;
+  font-weight: 500;
+  color: var(--scanner-dark);
+  margin-top: 0.5rem;
+}
+
+.textContainer {
+  max-width: 20rem;
+  text-align: center;
+  margin-top: 2rem;
+}
+
+.text {
+  color: rgba(var(--scanner-dark), 0.6);
+  font-size: 0.875rem;
+}

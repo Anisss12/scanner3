@@ -1,0 +1,785 @@
+[
+  {
+    "id": "g17UY2yD7vI7v7nykd18",
+    "name": "Lehenga",
+    "barcode": "C9JyufpB",
+    "design": "azFOik",
+    "sizes": [
+      "M"
+    ],
+    "colors": [
+      "Orange"
+    ],
+    "price": "3287",
+    "date": "2024-08-01T20:19:58.984695Z"
+  },
+  {
+    "id": "msPmJ7m8RWPx3RXT3353",
+    "name": "Denim Jacket",
+    "barcode": "0q8tegnc",
+    "design": "k1Luxz",
+    "sizes": [
+      "Ui"
+    ],
+    "colors": [
+      "Red",
+      "Blue",
+      "Yellow"
+    ],
+    "price": "9351",
+    "date": "2024-05-01T20:19:58.984796Z"
+  },
+  {
+    "id": "x8QSgkqawgKwNS7MAaiO",
+    "name": "Shorts",
+    "barcode": "eBLxnI4R",
+    "design": "mKoIZY",
+    "sizes": [
+      "XS",
+      "Ty",
+      "L"
+    ],
+    "colors": [
+      "Red",
+      "Yellow"
+    ],
+    "price": "3357",
+    "date": "2024-05-27T20:19:58.984829Z"
+  },
+  {
+    "id": "ZpkqxN20F6Vc7u5f1ycn",
+    "name": "Formal Shirt",
+    "barcode": "tx3EDhCc",
+    "design": "AbhxSR",
+    "sizes": [
+      "L",
+      "Ui",
+      "XL"
+    ],
+    "colors": [
+      "Green",
+      "Blue"
+    ],
+    "price": "7122",
+    "date": "2024-05-15T20:19:58.984857Z"
+  },
+  {
+    "id": "XZ5Axa9C7b4dugVY5rf1",
+    "name": "Formal Shirt",
+    "barcode": "uWLz8xHt",
+    "design": "6OuuxN",
+    "sizes": [
+      "Ty"
+    ],
+    "colors": [
+      "Blue",
+      "Black"
+    ],
+    "price": "5230",
+    "date": "2024-07-20T20:19:58.984884Z"
+  },
+  {
+    "id": "Y6mFDwVaeisjdizyPfgK",
+    "name": "Jeans",
+    "barcode": "4KAoQUVE",
+    "design": "M1drRz",
+    "sizes": [
+      "XXL"
+    ],
+    "colors": [
+      "White"
+    ],
+    "price": "3893",
+    "date": "2024-04-18T20:19:58.984910Z"
+  },
+  {
+    "id": "14SnOq40Azk27xK1d3yR",
+    "name": "Chinos",
+    "barcode": "bZHgb0wQ",
+    "design": "PztFtq",
+    "sizes": [
+      "Ui",
+      "XS"
+    ],
+    "colors": [
+      "Black",
+      "Purple"
+    ],
+    "price": "6775",
+    "date": "2024-09-13T20:19:58.984940Z"
+  },
+  {
+    "id": "rndSdf4mhIAxQ7WihV8o",
+    "name": "Cargo Pants",
+    "barcode": "EXWjogX6",
+    "design": "KnCVMO",
+    "sizes": [
+      "M"
+    ],
+    "colors": [
+      "Red",
+      "Green",
+      "Purple"
+    ],
+    "price": "8398",
+    "date": "2024-06-05T20:19:58.984967Z"
+  },
+  {
+    "id": "VgEJHTJ4OTj31p0g8MJX",
+    "name": "Tracksuit",
+    "barcode": "VvF25Dvr",
+    "design": "5CEmqa",
+    "sizes": [
+      "L"
+    ],
+    "colors": [
+      "Orange"
+    ],
+    "price": "4657",
+    "date": "2024-05-05T20:19:58.984992Z"
+  },
+  {
+    "id": "bxkPpcMf84L1CDlvaQbl",
+    "name": "Casual Shirt",
+    "barcode": "N9DPVubW",
+    "design": "8L0rME",
+    "sizes": [
+      "XL",
+      "M",
+      "XS"
+    ],
+    "colors": [
+      "White",
+      "Red",
+      "Green"
+    ],
+    "price": "1857",
+    "date": "2024-07-19T20:19:58.985022Z"
+  },
+  {
+    "id": "EVHmbMnAwNx683Iv8EUV",
+    "name": "Blazer",
+    "barcode": "sPwsMW6l",
+    "design": "qoZ5cC",
+    "sizes": [
+      "L",
+      "Ty",
+      "XL"
+    ],
+    "colors": [
+      "Black",
+      "Orange",
+      "White"
+    ],
+    "price": "3025",
+    "date": "2024-06-25T20:19:58.985050Z"
+  },
+  {
+    "id": "J0LIt6vvrvZmGft3X4XN",
+    "name": "Chinos",
+    "barcode": "f79bMrfx",
+    "design": "MeKMsn",
+    "sizes": [
+      "Ui",
+      "S",
+      "G"
+    ],
+    "colors": [
+      "Green"
+    ],
+    "price": "7714",
+    "date": "2025-02-07T20:19:58.985076Z"
+  },
+  {
+    "id": "ijHl10OQIvcwHXJX8DQR",
+    "name": "Chinos",
+    "barcode": "Yyfd5taL",
+    "design": "4B52ZM",
+    "sizes": [
+      "M",
+      "XXL",
+      "XS"
+    ],
+    "colors": [
+      "Black",
+      "Red"
+    ],
+    "price": "5304",
+    "date": "2024-06-06T20:19:58.985103Z"
+  },
+  {
+    "id": "Sm7nPDEzsZAAYfdUX2jc",
+    "name": "Jeans",
+    "barcode": "QS0zePhJ",
+    "design": "npwZA7",
+    "sizes": [
+      "S",
+      "XS",
+      "Y"
+    ],
+    "colors": [
+      "Yellow",
+      "White"
+    ],
+    "price": "7835",
+    "date": "2024-05-19T20:19:58.985130Z"
+  },
+  {
+    "id": "Sl9T2QJt0UkKvPPvd4OV",
+    "name": "Windbreaker",
+    "barcode": "idMrtz4g",
+    "design": "bRpAQ6",
+    "sizes": [
+      "XXL",
+      "Ty"
+    ],
+    "colors": [
+      "White"
+    ],
+    "price": "8845",
+    "date": "2024-12-13T20:19:58.985156Z"
+  },
+  {
+    "id": "CNvUiK1EBZsvgo7e3NuY",
+    "name": "Windbreaker",
+    "barcode": "8PgctVdI",
+    "design": "lbfKaZ",
+    "sizes": [
+      "XS",
+      "G"
+    ],
+    "colors": [
+      "Purple",
+      "Yellow",
+      "Blue"
+    ],
+    "price": "6061",
+    "date": "2024-07-25T20:19:58.985184Z"
+  },
+  {
+    "id": "VCrgJlZAncU5LmNgT05m",
+    "name": "Cargo Pants",
+    "barcode": "0HDpC2oA",
+    "design": "4MR1UV",
+    "sizes": [
+      "XXL",
+      "Y",
+      "M"
+    ],
+    "colors": [
+      "Red",
+      "White"
+    ],
+    "price": "8136",
+    "date": "2024-07-29T20:19:58.985218Z"
+  },
+  {
+    "id": "O0OgwKvkKPXPgQpVapD8",
+    "name": "Sherwani",
+    "barcode": "qe0QGKBO",
+    "design": "1wo827",
+    "sizes": [
+      "M"
+    ],
+    "colors": [
+      "Green",
+      "Red",
+      "White"
+    ],
+    "price": "7195",
+    "date": "2024-11-29T20:19:58.985251Z"
+  },
+  {
+    "id": "Sa5jLB5Xq62PZL6f8zuy",
+    "name": "Saree",
+    "barcode": "4GMbUYIH",
+    "design": "5WG9YU",
+    "sizes": [
+      "Y",
+      "Ui",
+      "Ty"
+    ],
+    "colors": [
+      "White",
+      "Black"
+    ],
+    "price": "764",
+    "date": "2024-11-01T20:19:58.985285Z"
+  },
+  {
+    "id": "VSdkwuAwaqDmGQJedOdT",
+    "name": "Blazer",
+    "barcode": "jzwhG5Mp",
+    "design": "rZ2K5v",
+    "sizes": [
+      "M",
+      "S",
+      "Y"
+    ],
+    "colors": [
+      "Red",
+      "Green",
+      "Black"
+    ],
+    "price": "9228",
+    "date": "2025-02-03T20:19:58.985318Z"
+  },
+  {
+    "id": "XYkcRgTJlCWyKTRYkyaI",
+    "name": "Sherwani",
+    "barcode": "IcvlDRla",
+    "design": "YR8adv",
+    "sizes": [
+      "XL",
+      "S"
+    ],
+    "colors": [
+      "Orange",
+      "Yellow"
+    ],
+    "price": "4369",
+    "date": "2025-01-23T20:19:58.985349Z"
+  },
+  {
+    "id": "XA39bNpbn4DFj4LhE8k2",
+    "name": "Kurta",
+    "barcode": "RZ9IwjEZ",
+    "design": "Iyva0D",
+    "sizes": [
+      "XXL",
+      "Ui",
+      "Ty"
+    ],
+    "colors": [
+      "Yellow",
+      "Blue"
+    ],
+    "price": "3016",
+    "date": "2024-10-02T20:19:58.985387Z"
+  },
+  {
+    "id": "V8zBnC1P7LZ8gcKYpROd",
+    "name": "Denim Jacket",
+    "barcode": "dEU4UMc0",
+    "design": "jkFdfU",
+    "sizes": [
+      "M",
+      "XXL",
+      "XS"
+    ],
+    "colors": [
+      "Orange"
+    ],
+    "price": "7368",
+    "date": "2024-10-08T20:19:58.985419Z"
+  },
+  {
+    "id": "8241i95Cgl2g8d89uCgr",
+    "name": "Sherwani",
+    "barcode": "B4J1sNrT",
+    "design": "oVfpFk",
+    "sizes": [
+      "XXL"
+    ],
+    "colors": [
+      "Orange",
+      "Purple",
+      "Black"
+    ],
+    "price": "8905",
+    "date": "2024-03-28T20:19:58.985452Z"
+  },
+  {
+    "id": "Xt73xYdKz938fBfI2ABT",
+    "name": "Chinos",
+    "barcode": "dwcwgbEq",
+    "design": "wjAPOa",
+    "sizes": [
+      "S"
+    ],
+    "colors": [
+      "Black",
+      "White"
+    ],
+    "price": "4577",
+    "date": "2024-03-20T20:19:58.985485Z"
+  },
+  {
+    "id": "98d7qptWV2Utty3Tbz62",
+    "name": "Joggers",
+    "barcode": "1hXP0TV0",
+    "design": "9oAacf",
+    "sizes": [
+      "Ty"
+    ],
+    "colors": [
+      "Red",
+      "Yellow",
+      "White"
+    ],
+    "price": "1533",
+    "date": "2024-10-04T20:19:58.985517Z"
+  },
+  {
+    "id": "lB9op8BRklpE9rnTNzCg",
+    "name": "Blazer",
+    "barcode": "Yw510QrE",
+    "design": "uFgYSn",
+    "sizes": [
+      "Ty",
+      "Ui",
+      "L"
+    ],
+    "colors": [
+      "Green",
+      "Purple",
+      "White"
+    ],
+    "price": "1122",
+    "date": "2024-08-03T20:19:58.985550Z"
+  },
+  {
+    "id": "bNH7WUMbZccXTGiDQlDq",
+    "name": "Saree",
+    "barcode": "PtoXtGO7",
+    "design": "iM00aS",
+    "sizes": [
+      "Ui"
+    ],
+    "colors": [
+      "Green",
+      "Red"
+    ],
+    "price": "6028",
+    "date": "2024-10-08T20:19:58.985582Z"
+  },
+  {
+    "id": "7eoqtPAbqJhpb008YMwM",
+    "name": "Denim Jacket",
+    "barcode": "EudWKBMG",
+    "design": "JkprM4",
+    "sizes": [
+      "Ty",
+      "M",
+      "XL"
+    ],
+    "colors": [
+      "Black",
+      "Blue"
+    ],
+    "price": "9580",
+    "date": "2024-11-01T20:19:58.985614Z"
+  },
+  {
+    "id": "cxudHhiuHSY1BfnbgF9Y",
+    "name": "Kurta",
+    "barcode": "GHgcMfG2",
+    "design": "klULGz",
+    "sizes": [
+      "G"
+    ],
+    "colors": [
+      "Blue"
+    ],
+    "price": "6349",
+    "date": "2024-06-23T20:19:58.985645Z"
+  },
+  {
+    "id": "Kd5f0vIYCjM7RFp7KwrF",
+    "name": "Polo Shirt",
+    "barcode": "3UuNo9vB",
+    "design": "7K8RUU",
+    "sizes": [
+      "G",
+      "Ty",
+      "Ui"
+    ],
+    "colors": [
+      "Purple"
+    ],
+    "price": "2137",
+    "date": "2024-11-28T20:19:58.985677Z"
+  },
+  {
+    "id": "BU0tQ1gDfApxtPm13nyk",
+    "name": "T-Shirt",
+    "barcode": "U3eGBw8v",
+    "design": "iTauTn",
+    "sizes": [
+      "L"
+    ],
+    "colors": [
+      "Yellow",
+      "Blue"
+    ],
+    "price": "3921",
+    "date": "2024-09-21T20:19:58.985709Z"
+  },
+  {
+    "id": "n3ZvCU6fYJHO8hOgkr9h",
+    "name": "Windbreaker",
+    "barcode": "UPo1zsnJ",
+    "design": "bm1XSX",
+    "sizes": [
+      "S"
+    ],
+    "colors": [
+      "Red",
+      "Black"
+    ],
+    "price": "339",
+    "date": "2024-12-09T20:19:58.985744Z"
+  },
+  {
+    "id": "IG1KEMkxdDmpsTHmGPgC",
+    "name": "Hoodie",
+    "barcode": "nCLMXMpQ",
+    "design": "pQOJgb",
+    "sizes": [
+      "M"
+    ],
+    "colors": [
+      "Blue"
+    ],
+    "price": "1687",
+    "date": "2025-01-12T20:19:58.985776Z"
+  },
+  {
+    "id": "LAwtjKLKgBnHc1DRjXJe",
+    "name": "Shorts",
+    "barcode": "pDu13RGJ",
+    "design": "YrnKgL",
+    "sizes": [
+      "XL",
+      "M"
+    ],
+    "colors": [
+      "White",
+      "Yellow"
+    ],
+    "price": "8543",
+    "date": "2024-12-12T20:19:58.985807Z"
+  },
+  {
+    "id": "YfzB2BMiQqf4aqJipj8l",
+    "name": "Denim Jacket",
+    "barcode": "fMLIAZIz",
+    "design": "pX1wQP",
+    "sizes": [
+      "Y",
+      "XS"
+    ],
+    "colors": [
+      "Blue",
+      "White"
+    ],
+    "price": "3032",
+    "date": "2024-09-04T20:19:58.986400Z"
+  },
+  {
+    "id": "LA02jWuzEMsXpACPKFD7",
+    "name": "Tracksuit",
+    "barcode": "ZXSRcqR7",
+    "design": "r5g46z",
+    "sizes": [
+      "XXL",
+      "L"
+    ],
+    "colors": [
+      "Green",
+      "Yellow"
+    ],
+    "price": "653",
+    "date": "2024-11-04T20:19:58.986426Z"
+  },
+  {
+    "id": "HkwzTGoTqaVxlS4bIl9f",
+    "name": "Saree",
+    "barcode": "1vQZKZVa",
+    "design": "fmZzDC",
+    "sizes": [
+      "Y",
+      "S",
+      "Ty"
+    ],
+    "colors": [
+      "Red",
+      "Blue"
+    ],
+    "price": "6211",
+    "date": "2024-10-04T20:19:58.986446Z"
+  },
+  {
+    "id": "BNxQJOM9Fk1UzFF2DsNB",
+    "name": "Blazer",
+    "barcode": "K9FFI1gX",
+    "design": "EeB57N",
+    "sizes": [
+      "Ui",
+      "XS",
+      "Y"
+    ],
+    "colors": [
+      "Red",
+      "Black",
+      "White"
+    ],
+    "price": "8918",
+    "date": "2024-11-17T20:19:58.986477Z"
+  },
+  {
+    "id": "XGZ08a6ZyxQ7Ujblq7cV",
+    "name": "Chinos",
+    "barcode": "RrT4L5oh",
+    "design": "a8ubiE",
+    "sizes": [
+      "L"
+    ],
+    "colors": [
+      "Green",
+      "Blue"
+    ],
+    "price": "3405",
+    "date": "2024-04-05T20:19:58.986504Z"
+  },
+  {
+    "id": "WUoOMGJNd7pEI7X6RODM",
+    "name": "Chinos",
+    "barcode": "YZPnYzJm",
+    "design": "DWZEzz",
+    "sizes": [
+      "XL"
+    ],
+    "colors": [
+      "White"
+    ],
+    "price": "6217",
+    "date": "2024-05-20T20:19:58.986536Z"
+  },
+  {
+    "id": "5F2klGCWuJxonAHIBWuC",
+    "name": "Saree",
+    "barcode": "9v23qtct",
+    "design": "ZiN2k8",
+    "sizes": [
+      "Ui"
+    ],
+    "colors": [
+      "Blue",
+      "Black"
+    ],
+    "price": "3187",
+    "date": "2025-03-07T20:19:58.986556Z"
+  },
+  {
+    "id": "JUc7duOsxPUTYzGyImA0",
+    "name": "Sweater",
+    "barcode": "x1u5NWqo",
+    "design": "4duZuy",
+    "sizes": [
+      "L"
+    ],
+    "colors": [
+      "Black",
+      "Red",
+      "White"
+    ],
+    "price": "3852",
+    "date": "2025-02-27T20:19:58.986579Z"
+  },
+  {
+    "id": "4xTbU0buzhbO1Xx1eN1N",
+    "name": "Blazer",
+    "barcode": "urXq3AsM",
+    "design": "wXyj0t",
+    "sizes": [
+      "XL",
+      "S"
+    ],
+    "colors": [
+      "Purple",
+      "Green",
+      "Yellow"
+    ],
+    "price": "5783",
+    "date": "2024-10-20T20:19:58.986611Z"
+  },
+  {
+    "id": "Exm6Flvf0pi1NARJ0ZlL",
+    "name": "Blazer",
+    "barcode": "pXqX9SyH",
+    "design": "K5ZDsV",
+    "sizes": [
+      "L",
+      "Ui",
+      "Y"
+    ],
+    "colors": [
+      "Green",
+      "White",
+      "Black"
+    ],
+    "price": "4659",
+    "date": "2024-08-17T20:19:58.986634Z"
+  },
+  {
+    "id": "AnwoqdPaVN4mXbKT75c2",
+    "name": "Denim Jacket",
+    "barcode": "rY0s90UA",
+    "design": "JMX2ow",
+    "sizes": [
+      "XXL"
+    ],
+    "colors": [
+      "White"
+    ],
+    "price": "4325",
+    "date": "2024-09-16T20:19:58.986664Z"
+  },
+  {
+    "id": "GjLsUGdSdgDZwidiqWuj",
+    "name": "Sweater",
+    "barcode": "N1Ob6z1e",
+    "design": "NlqgKr",
+    "sizes": [
+      "L",
+      "G"
+    ],
+    "colors": [
+      "Green"
+    ],
+    "price": "1820",
+    "date": "2024-09-01T20:19:58.986683Z"
+  },
+  {
+    "id": "GSjun26XauW7RYVqPxcA",
+    "name": "Tracksuit",
+    "barcode": "BX49KftL",
+    "design": "aoa2j0",
+    "sizes": [
+      "Y",
+      "S",
+      "XL"
+    ],
+    "colors": [
+      "Yellow",
+      "White"
+    ],
+    "price": "4834",
+    "date": "2024-12-01T20:19:58.986702Z"
+  },
+  {
+    "id": "z66P2qSb4mK4Ih7WUUZ2",
+    "name": "Hoodie",
+    "barcode": "7bGMVH1y",
+    "design": "s293UV",
+    "sizes": [
+      "Ui"
+    ],
+    "colors": [
+      "Green"
+    ],
+    "price": "3078",
+    "date": "2024-09-15T20:19:58.986720Z"
+  }
+]

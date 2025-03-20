@@ -1,0 +1,256 @@
+.container {
+  width: 100%;
+  max-width: 28rem;
+  margin-left: auto;
+  margin-right: auto;
+  animation: slide-up 0.5s ease-in-out;
+}
+
+.totals {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  height: 5vh;
+  align-items: center;
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1rem;
+  flex-direction: column;
+}
+
+.title {
+  font-size: 1.25rem;
+  font-weight: 500;
+  color: var(--scanner-dark);
+}
+
+.buttonGroup {
+  display: flex;
+  gap: 0.5rem;
+  width: 100vw;
+  padding: 1vh;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.button {
+  padding: 1vh;
+  transition: background-color 0.3s ease-in-out;
+  border: 0.5px solid var(--border-color);
+  font-size: 1.5vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 1vh;
+  align-items: center;
+}
+
+.buttonPrimary {
+  background-color: var(--scanner-primary) / 10%;
+  color: var(--scanner-primary);
+}
+
+.buttonPrimary:hover {
+  background-color: var(--scanner-primary) / 20%;
+}
+
+.buttonSecondary {
+  background-color: var(--scanner-error) / 10%;
+  color: var(--scanner-error);
+}
+
+.buttonSecondary:hover {
+  background-color: var(--scanner-error) / 20%;
+}
+
+.card {
+  background: var(--card-glass);
+  padding: 3rem 1rem;
+  text-align: center;
+}
+
+.searchFilterContainer {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  padding-top: 1vh;
+  align-items: center;
+  gap: 2vh;
+}
+
+.search {
+  width: 80%;
+  height: 5vh;
+  border: 1px solid var(--border-color);
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1vh;
+}
+
+.search input {
+  height: 100%;
+  width: 85%;
+  background: none;
+  border: none;
+  outline: none;
+}
+
+.filterBtn {
+  width: 25%;
+  border: 1px solid var(--border-color);
+  display: flex;
+  flex-direction: row;
+  height: 5vh;
+  justify-content: center;
+  align-items: center;
+  padding: 1vh;
+  gap: 0.5vh;
+}
+.filterBtn h2 {
+  font-size: 1.5vh;
+}
+.cardText {
+  color: rgba(var(--scanner-dark), 0.6);
+}
+
+.list {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.listItem {
+  background: var(--card-glass);
+  padding: 1rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  animation: fade-in 0.5s ease-in-out;
+  position: relative;
+  border: 1px solid var(--border-color);
+}
+
+.listItemText {
+  color: var(--scanner-dark);
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.listItemButtonGroup {
+  position: absolute;
+  right: 5vh;
+  top: 3vh;
+  display: flex;
+  gap: 0.5rem;
+  transition: opacity 0.3s ease-in-out;
+}
+
+@keyframes slide-up {
+  from {
+    transform: translateY(10%);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+@keyframes fade-in {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+.filterContainer {
+  position: fixed;
+  bottom: 0vh;
+  z-index: 50;
+  height: fit-content;
+  background: var(--secondary-bg);
+  display: flex;
+  flex-direction: column;
+  width: 100vw;
+  left: 0vh;
+  padding: 2vh;
+  justify-content: space-between;
+  gap: 2vh;
+}
+
+.heading {
+  border-bottom: 01px solid var(--border-color);
+  padding: 2vh;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.heading h2 {
+  font-size: 2vh;
+}
+.filterContainer select {
+  height: 4vh;
+  border: none;
+  outline: none;
+  border-radius: 0.5vh;
+  padding: 1vh;
+  width: 50%;
+}
+
+.filterContainer select:hover {
+  background: var(--primary-bg);
+  border: 1px solid var(--primary-bg);
+}
+
+.option {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.option h2 {
+  font-size: 2vh;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  gap: 2vh;
+}
+
+.nameMoile {
+  background: var(--secondary-bg);
+  width: 100vw;
+  padding: 0.5vh;
+  border-radius: 0.5vh;
+  padding-left: 1vh;
+}
+
+.billInfo {
+  margin-top: 1vh;
+  border: 1px solid var(--secondary-bg);
+  width: 100%;
+  padding: 0.5vh;
+  border-radius: 0.5vh;
+  padding-left: 1vh;
+}
+.calculate {
+  margin-top: 1vh;
+  background: var(--secondary-bg);
+  width: 100%;
+  padding: 0.5vh;
+  border-radius: 0.5vh;
+  padding-left: 1vh;
+}

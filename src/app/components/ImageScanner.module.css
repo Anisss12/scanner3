@@ -1,0 +1,74 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem;
+  animation: scale-in 0.5s ease-in-out;
+}
+
+.hiddenInput {
+  display: none;
+}
+
+.uploadBox {
+  width: 16rem;
+  height: 16rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  border-width: 2px;
+  border-style: dashed;
+  border-color: var(--border-color);
+  border-radius: 1.5rem;
+  padding: 1.5rem;
+  cursor: pointer;
+  transition: all 0.3s ease-in-out;
+  background: var(--secondary-bg);
+  box-shadow: 0 10px 15px rgba(0, 0, 0, 0.1), 0 4px 6px rgba(0, 0, 0, 0.05);
+}
+
+.uploadBox:hover {
+  border-color: var(--scanner-primary);
+  box-shadow: 0 15px 25px rgba(0, 0, 0, 0.15), 0 5px 10px rgba(0, 0, 0, 0.05);
+}
+
+.uploadIcon {
+  color: var(--scanner-primary);
+  margin-bottom: 1rem;
+}
+
+.uploadText {
+  font-size: 1.125rem;
+  font-weight: 500;
+  color: var(--scanner-dark);
+}
+
+.uploadSubText {
+  font-size: 0.875rem;
+  color: rgba(255, 255, 255, 0.6);
+  text-align: center;
+  margin-top: 0.5rem;
+}
+
+.browseButton {
+  margin-top: 1.5rem;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.browseButtonIcon {
+  width: 1.125rem;
+  height: 1.125rem;
+}
+
+@keyframes scale-in {
+  from {
+    transform: scale(0.95);
+  }
+  to {
+    transform: scale(1);
+  }
+}

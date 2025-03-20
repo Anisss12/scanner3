@@ -1,0 +1,40 @@
+.confirm {
+  position: fixed;
+  bottom: 0vh;
+  z-index: 50;
+  background: var(--primary-bg);
+  width: 100%;
+  padding: 2vh;
+  height: fit-content;
+  gap: 3vh;
+  left: 0vh;
+  display: flex;
+  flex-direction: column;
+  border-top: 1px solid var(--border-color);
+}
+.confirm::before {
+  content: "";
+  position: absolute;
+  height: 100vh;
+  width: 100%;
+  background: rgba(6, 6, 6, 0.553);
+  z-index: -1;
+  bottom: 0;
+  left: 0;
+}
+.btns {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  padding-bottom: 2vh;
+}
+.confirm button {
+  height: 6vh;
+  border-radius: 1vh;
+  width: 48%;
+  font-weight: 700;
+}
+.confirm button:nth-child(1) {
+  border: 1px solid var(--border-color);
+  background: none;
+}

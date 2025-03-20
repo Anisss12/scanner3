@@ -1,0 +1,174 @@
+.container {
+  position: relative;
+  width: 100%;
+  animation: fade-in 0.5s ease-in-out;
+  height: 60vh;
+  margin-top: 5vh;
+}
+
+.videoWrapper {
+  position: absolute;
+  inset: 0;
+  height: 30%;
+  overflow: hidden;
+  border-radius: 1vh;
+}
+
+.video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.scannerCorner {
+  position: absolute;
+  width: 1.5rem;
+  height: 1.5rem;
+  border: 1px solid white;
+}
+
+.topLeft {
+  top: 1vh;
+  left: 1vh;
+  height: 5vh;
+  width: 5vh;
+  border-left: 2px solid green;
+  border-top: 2px solid green;
+  border-top-left-radius: 0.5rem;
+  border-bottom: none;
+  border-right: none;
+}
+
+.topRight {
+  top: 1vh;
+  right: 1vh;
+  height: 5vh;
+  width: 5vh;
+  border-right: 2px solid green;
+  border-top: 2px solid green;
+  border-top-right-radius: 0.5rem;
+  border-bottom: none;
+  border-left: none;
+}
+
+.bottomLeft {
+  bottom: 1vh;
+  left: 1vh;
+  height: 5vh;
+  width: 5vh;
+  border-left: 2px solid green;
+  border-bottom: 2px solid green;
+  border-top: none;
+  border-right: none;
+  border-bottom-left-radius: 0.5rem;
+}
+
+.bottomRight {
+  bottom: 1vh;
+  right: 1vh;
+  height: 5vh;
+  width: 5vh;
+  border-right: 2px solid green;
+  border-bottom: 2px solid green;
+  border-top: none;
+  border-left: none;
+  border-bottom-right-radius: 0.5rem;
+}
+
+.scanLine {
+  position: absolute;
+  left: 0;
+  right: 0;
+  height: 100%;
+  width: 1px;
+  background-color: red;
+  animation: scan-line 2s infinite;
+}
+
+@keyframes fade-in {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes scan-line {
+  0% {
+    left: 0;
+  }
+  50% {
+    left: 100%;
+  }
+  100% {
+    left: 0;
+  }
+}
+
+.noBarcodeMessage {
+  position: absolute;
+  bottom: 80px; /* Adjust as needed */
+  left: 50%;
+  transform: translateX(-50%);
+  color: red;
+  font-size: 18px;
+  text-align: center;
+  padding: 10px;
+  border-radius: 5px;
+}
+
+.continueButton {
+  position: absolute;
+  bottom: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  border: 1px solid var(--border-color);
+  padding: 10px 20px;
+  background-color: var(--secondary-bg);
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 16px;
+}
+
+.continueButton:hover {
+  background-color: #0056b3;
+}
+
+.restartButton {
+  position: absolute; /* Position the button absolutely */
+  bottom: 20px; /* Place it 20px from the bottom */
+  left: 50%; /* Center it horizontally */
+  transform: translateX(-50%); /* Adjust for centering */
+  padding: 10px 20px;
+  background-color: #007bff; /* Blue background */
+  color: white; /* White text */
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 16px;
+  z-index: 10; /* Ensure it's above other elements */
+}
+
+.restartButton:hover {
+  background-color: #0056b3; /* Darker blue on hover */
+}
+
+.timerDisplay {
+  text-align: center;
+  font-size: 18px;
+  font-weight: bold;
+  color: red;
+  margin-top: 10px;
+  position: absolute;
+  bottom: 5vh;
+}
+
+.noBarcodeMessage {
+  text-align: center;
+  font-size: 16px;
+  color: #ff0000;
+  margin-top: 10px;
+}
