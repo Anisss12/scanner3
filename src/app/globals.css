@@ -67,3 +67,35 @@ a {
     color-scheme: dark;
   }
 }
+
+/* components/LoadingScreen.module.css */
+.loadingContainer {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background-color: #004953; /* Midnight Green */
+  color: #C0C0C0; /* Silver */
+  font-size: 20px;
+}
+
+.spinner {
+  width: 50px;
+  height: 50px;
+  border: 5px solid #D3D3D3; /* Light Silver */
+  border-top: 5px solid #C0C0C0; /* Silver */
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+.text {
+  margin-top: 20px;
+  font-weight: bold;
+}
+
