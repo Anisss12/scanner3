@@ -33,7 +33,7 @@ const HomeScreen = ({ onShowForm }) => {
       parsedData.forEach((item) => {
     
 
-            totalPrice += Number(item.price) || 0;  // Ensure it's a number
+            totalPrice += Number(item.total) || 0;  // Ensure it's a number
       totalUnits += Number(item.quantity) || 0;  // Ensure it's a number
       });
 
