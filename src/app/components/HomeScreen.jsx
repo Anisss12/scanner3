@@ -34,7 +34,7 @@ const HomeScreen = ({ onShowForm }) => {
     
 
             totalPrice += Number(item.total) || 0;  // Ensure it's a number
-      totalUnits += Number(item.quantity) || 0;  // Ensure it's a number
+      totalUnits += Number(item.unit) || 0;  // Ensure it's a number
       });
 
       setPrice((prevPrice) => prevPrice + totalPrice);
