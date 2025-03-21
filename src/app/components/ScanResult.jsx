@@ -172,8 +172,8 @@ const ScanResult = ({ result, onAddToList, onScanAgain }) => {
                     />
                   </div>
                   <div className={styles.price}>
-                    <h2>Total:</h2>
-                    <h2>{item.price * unit}</h2>
+                    <h4>Total:{item.price * unit}</h4>
+                    
                   </div>
                 </div>
               </ul>
