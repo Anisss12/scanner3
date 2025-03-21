@@ -1,7 +1,7 @@
 // components/LoadingScreen.js
 "use client";
 import React from "react";
-import styles from "./LoadingScreen.module.css";
+
 
 const LoadingScreen = () => {
   return (
