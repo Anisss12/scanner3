@@ -47,6 +47,10 @@ const Index = () => {
   const handleScanned = (result) => {
     setLastScannedResult(result);
     setShowResult(true);
+    // Only add if not already present
+    setScannedItems((prev) =>
+      prev.includes(result) ? prev : [...prev, result]
+    );
   };
 
   const handleAddToList = (data) => {
@@ -79,7 +83,7 @@ const Index = () => {
       return (
         <ScanResult
           result={lastScannedResult || ""}
-          onAddToList={handleAddToList}
+          scannedItems={scannedItems}
           onScanAgain={handleScanAgain}
         />
       );
