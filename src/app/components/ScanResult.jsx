@@ -18,6 +18,7 @@ const ScanResult = ({ result, onAddToList, onScanAgain }) => {
     total: 0,
     name: "",
     mobile: "",
+    unit: 0,
   });
 
   useEffect(() => {
@@ -29,7 +30,6 @@ const ScanResult = ({ result, onAddToList, onScanAgain }) => {
         }
         const result = await response.json();
         setData(result.data);
-        setFilteredData(result.data); // Initialize filtered data with all data
       } catch (error) {
         console.error("Fetch error:", error);
       }
@@ -39,11 +39,9 @@ const ScanResult = ({ result, onAddToList, onScanAgain }) => {
   }, []);
 
   useEffect(() => {
-    // Filtering the data based on result
     const filtered = data.filter((item) =>
       item.barcode.toLowerCase().includes(result.toLowerCase())
     );
-    setFilteredData(filtered);
 
     if (filtered.length > 0) {
       const item = filtered[0];
@@ -53,6 +51,14 @@ const ScanResult = ({ result, onAddToList, onScanAgain }) => {
         design: item.design,
         price: item.price,
       }));
+
+      // Append to filteredData without duplicating barcodes
+      setFilteredData((prev) => {
+        const newItems = filtered.filter(
+          (item) => !prev.some((existing) => existing.barcode === item.barcode)
+        );
+        return [...prev, ...newItems];
+      });
     }
   }, [result, data]);
 
@@ -91,6 +97,15 @@ const ScanResult = ({ result, onAddToList, onScanAgain }) => {
 
   const handleAddToList = () => {
     onAddToList(tradeData);
+    // Optional: Reset input fields if needed
+    setTradeData((prev) => ({
+      ...prev,
+      sizes: "",
+      colors: "",
+      total: 0,
+      unit: 0,
+    }));
+    setUnit(0);
   };
 
   return (
@@ -172,7 +187,7 @@ const ScanResult = ({ result, onAddToList, onScanAgain }) => {
                     />
                   </div>
                   <div className={styles.price}>
-                    <h4>Total:{item.price * unit}</h4>
+                    <h4>Total: {item.price * unit}</h4>
                   </div>
                 </div>
               </ul>
