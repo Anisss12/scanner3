@@ -6,118 +6,108 @@ import { toast } from "sonner";
 import styles from "./ScanResult.module.css";
 
 const ScanResult = ({ result, onAddToList, onScanAgain }) => {
-  const [data, setData] = useState([]);
-  const [filteredData, setFilteredData] = useState([]);
+  const [allData, setAllData] = useState([]);
+  const [scannedItems, setScannedItems] = useState([]);
+  const [tradeData, setTradeData] = useState({});
   const [unit, setUnit] = useState(0);
-  const [tradeData, setTradeData] = useState({
-    barcode: "",
-    design: "",
-    sizes: "",
-    colors: "",
-    price: 0,
-    total: 0,
-    name: "",
-    mobile: "",
-    unit: 0,
-  });
 
+  // fetch data once
   useEffect(() => {
-    const fetchingData = async () => {
+    const fetchData = async () => {
       try {
         const response = await fetch("/api/saveData");
-        if (!response.ok) {
-          throw new Error("Network response was not ok");
-        }
-        const result = await response.json();
-        setData(result.data);
-      } catch (error) {
-        console.error("Fetch error:", error);
+        const json = await response.json();
+        setAllData(json.data);
+      } catch (err) {
+        console.error("Failed to fetch data:", err);
       }
     };
-
-    fetchingData();
+    fetchData();
   }, []);
 
+  // add scanned item to list on each result change
   useEffect(() => {
-    const filtered = data.filter((item) =>
+    if (!result || !allData.length) return;
+
+    const matched = allData.find((item) =>
       item.barcode.toLowerCase().includes(result.toLowerCase())
     );
 
-    if (filtered.length > 0) {
-      const item = filtered[0];
-      setTradeData((prevData) => ({
-        ...prevData,
-        barcode: item.barcode,
-        design: item.design,
-        price: item.price,
-      }));
-
-      // Append to filteredData without duplicating barcodes
-      setFilteredData((prev) => {
-        const newItems = filtered.filter(
-          (item) => !prev.some((existing) => existing.barcode === item.barcode)
-        );
-        return [...prev, ...newItems];
-      });
+    if (matched) {
+      const alreadyExists = scannedItems.some(
+        (item) => item.barcode === matched.barcode
+      );
+      if (!alreadyExists) {
+        setScannedItems((prev) => [...prev, matched]);
+        setTradeData({
+          barcode: matched.barcode,
+          design: matched.design,
+          sizes: "",
+          colors: "",
+          price: matched.price,
+          total: 0,
+          name: "",
+          mobile: "",
+          unit: 0,
+        });
+        setUnit(0);
+      }
     }
-  }, [result, data]);
+  }, [result, allData]);
 
   const copyToClipboard = () => {
     navigator.clipboard
       .writeText(result)
       .then(() => toast.success("Copied to clipboard"))
-      .catch(() => toast.error("Failed to copy to clipboard"));
+      .catch(() => toast.error("Copy failed"));
   };
 
   const handleInputChange = (e) => {
     const { name, value } = e.target;
-    setTradeData((prevData) => ({
-      ...prevData,
-      [name]: value,
-    }));
+    setTradeData((prev) => ({ ...prev, [name]: value }));
   };
 
   const handleUnitChange = (e, price) => {
-    const unitValue = e.target.value;
-    setUnit(unitValue);
-    setTradeData((prevData) => ({
-      ...prevData,
-      unit: unitValue,
-      total: unitValue * price,
+    const unitVal = parseInt(e.target.value) || 0;
+    setUnit(unitVal);
+    setTradeData((prev) => ({
+      ...prev,
+      unit: unitVal,
+      total: unitVal * price,
     }));
   };
 
   const handleSelectChange = (e) => {
     const { name, value } = e.target;
-    setTradeData((prevData) => ({
-      ...prevData,
-      [name]: value,
-    }));
+    setTradeData((prev) => ({ ...prev, [name]: value }));
   };
 
   const handleAddToList = () => {
     onAddToList(tradeData);
-    // Optional: Reset input fields if needed
+    toast.success("Item added to list");
+
+    // Resetting size/color/unit only (keep barcode info)
     setTradeData((prev) => ({
       ...prev,
       sizes: "",
       colors: "",
-      total: 0,
       unit: 0,
+      total: 0,
     }));
     setUnit(0);
   };
 
   return (
     <div className={styles.container}>
-      <h2 className={styles.title}>Result</h2>
+      <h2 className={styles.title}>Scan Result</h2>
       <div className={styles.resultBox}>
         <p className={styles.resultText}>{result}</p>
       </div>
+
       <div className={styles.entryResult}>
         <ul>
-          {filteredData.length > 0 ? (
-            filteredData.map((item, index) => (
+          {scannedItems.length > 0 ? (
+            scannedItems.map((item, index) => (
               <ul key={index} className={styles.allResults}>
                 <li>
                   <strong>Barcode:</strong> {item.barcode}
@@ -132,9 +122,9 @@ const ScanResult = ({ result, onAddToList, onScanAgain }) => {
                     value={tradeData.sizes}
                     onChange={handleSelectChange}
                   >
-                    <option value="">Select a size</option>
-                    {item.sizes.map((size, index) => (
-                      <option key={index} value={size}>
+                    <option value="">Select size</option>
+                    {item.sizes.map((size, i) => (
+                      <option key={i} value={size}>
                         {size}
                       </option>
                     ))}
@@ -147,9 +137,9 @@ const ScanResult = ({ result, onAddToList, onScanAgain }) => {
                     value={tradeData.colors}
                     onChange={handleSelectChange}
                   >
-                    <option value="">Select a color</option>
-                    {item.colors.map((color, index) => (
-                      <option key={index} value={color}>
+                    <option value="">Select color</option>
+                    {item.colors.map((color, i) => (
+                      <option key={i} value={color}>
                         {color}
                       </option>
                     ))}
@@ -158,9 +148,10 @@ const ScanResult = ({ result, onAddToList, onScanAgain }) => {
                 <li>
                   <strong>Price:</strong> {item.price}
                 </li>
+
                 <div className={styles.addTradeDetails}>
                   <div className={styles.name}>
-                    <label htmlFor="name">Name:</label>
+                    <label>Name:</label>
                     <input
                       type="text"
                       name="name"
@@ -169,7 +160,7 @@ const ScanResult = ({ result, onAddToList, onScanAgain }) => {
                     />
                   </div>
                   <div className={styles.mobile}>
-                    <label htmlFor="mobile">Mobile:</label>
+                    <label>Mobile:</label>
                     <input
                       type="number"
                       name="mobile"
@@ -178,7 +169,7 @@ const ScanResult = ({ result, onAddToList, onScanAgain }) => {
                     />
                   </div>
                   <div className={styles.unit}>
-                    <label htmlFor="unit">Unit:</label>
+                    <label>Unit:</label>
                     <input
                       type="number"
                       name="unit"
@@ -193,10 +184,11 @@ const ScanResult = ({ result, onAddToList, onScanAgain }) => {
               </ul>
             ))
           ) : (
-            <li>No data found</li>
+            <li>No items scanned yet</li>
           )}
         </ul>
       </div>
+
       <div className={styles.card}>
         <div className={styles.buttonGroup}>
           <button onClick={copyToClipboard} className={styles.buttonSecondary}>
