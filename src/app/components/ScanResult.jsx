@@ -8,9 +8,10 @@ import styles from "./ScanResult.module.css";
 const ScanResult = ({ result, onAddToList, onScanAgain }) => {
   const [allData, setAllData] = useState([]);
   const [scannedItems, setScannedItems] = useState([]);
-  const [formStates, setFormStates] = useState([]); // One per scanned item
+  const [tradeData, setTradeData] = useState({});
+  const [unit, setUnit] = useState(0);
 
-  // Fetch data once
+  // fetch data once
   useEffect(() => {
     const fetchData = async () => {
       try {
@@ -24,7 +25,7 @@ const ScanResult = ({ result, onAddToList, onScanAgain }) => {
     fetchData();
   }, []);
 
-  // Add scanned item to list
+  // add scanned item to list on each result change
   useEffect(() => {
     if (!result || !allData.length) return;
 
@@ -38,20 +39,18 @@ const ScanResult = ({ result, onAddToList, onScanAgain }) => {
       );
       if (!alreadyExists) {
         setScannedItems((prev) => [...prev, matched]);
-        setFormStates((prev) => [
-          ...prev,
-          {
-            barcode: matched.barcode,
-            design: matched.design,
-            sizes: "",
-            colors: "",
-            price: matched.price,
-            total: 0,
-            name: "",
-            mobile: "",
-            unit: 0,
-          },
-        ]);
+        setTradeData({
+          barcode: matched.barcode,
+          design: matched.design,
+          sizes: "",
+          colors: "",
+          price: matched.price,
+          total: 0,
+          name: "",
+          mobile: "",
+          unit: 0,
+        });
+        setUnit(0);
       }
     }
   }, [result, allData]);
@@ -63,23 +62,39 @@ const ScanResult = ({ result, onAddToList, onScanAgain }) => {
       .catch(() => toast.error("Copy failed"));
   };
 
-  const handleInputChange = (index, name, value) => {
-    const updated = [...formStates];
-    updated[index][name] = value;
-    setFormStates(updated);
+  const handleInputChange = (e) => {
+    const { name, value } = e.target;
+    setTradeData((prev) => ({ ...prev, [name]: value }));
   };
 
-  const handleUnitChange = (index, value, price) => {
-    const updated = [...formStates];
-    const unit = parseInt(value) || 0;
-    updated[index].unit = unit;
-    updated[index].total = unit * price;
-    setFormStates(updated);
+  const handleUnitChange = (e, price) => {
+    const unitVal = parseInt(e.target.value) || 0;
+    setUnit(unitVal);
+    setTradeData((prev) => ({
+      ...prev,
+      unit: unitVal,
+      total: unitVal * price,
+    }));
   };
 
-  const handleAddToList = (index) => {
-    onAddToList(formStates[index]);
+  const handleSelectChange = (e) => {
+    const { name, value } = e.target;
+    setTradeData((prev) => ({ ...prev, [name]: value }));
+  };
+
+  const handleAddToList = () => {
+    onAddToList(tradeData);
     toast.success("Item added to list");
+
+    // Resetting size/color/unit only (keep barcode info)
+    setTradeData((prev) => ({
+      ...prev,
+      sizes: "",
+      colors: "",
+      unit: 0,
+      total: 0,
+    }));
+    setUnit(0);
   };
 
   return (
@@ -104,10 +119,8 @@ const ScanResult = ({ result, onAddToList, onScanAgain }) => {
                   <strong>Sizes:</strong>
                   <select
                     name="sizes"
-                    value={formStates[index]?.sizes || ""}
-                    onChange={(e) =>
-                      handleInputChange(index, "sizes", e.target.value)
-                    }
+                    value={tradeData.sizes}
+                    onChange={handleSelectChange}
                   >
                     <option value="">Select size</option>
                     {item.sizes.map((size, i) => (
@@ -121,10 +134,8 @@ const ScanResult = ({ result, onAddToList, onScanAgain }) => {
                   <strong>Colors:</strong>
                   <select
                     name="colors"
-                    value={formStates[index]?.colors || ""}
-                    onChange={(e) =>
-                      handleInputChange(index, "colors", e.target.value)
-                    }
+                    value={tradeData.colors}
+                    onChange={handleSelectChange}
                   >
                     <option value="">Select color</option>
                     {item.colors.map((color, i) => (
@@ -144,10 +155,8 @@ const ScanResult = ({ result, onAddToList, onScanAgain }) => {
                     <input
                       type="text"
                       name="name"
-                      value={formStates[index]?.name || ""}
-                      onChange={(e) =>
-                        handleInputChange(index, "name", e.target.value)
-                      }
+                      value={tradeData.name}
+                      onChange={handleInputChange}
                     />
                   </div>
                   <div className={styles.mobile}>
@@ -155,10 +164,8 @@ const ScanResult = ({ result, onAddToList, onScanAgain }) => {
                     <input
                       type="number"
                       name="mobile"
-                      value={formStates[index]?.mobile || ""}
-                      onChange={(e) =>
-                        handleInputChange(index, "mobile", e.target.value)
-                      }
+                      value={tradeData.mobile}
+                      onChange={handleInputChange}
                     />
                   </div>
                   <div className={styles.unit}>
@@ -166,34 +173,12 @@ const ScanResult = ({ result, onAddToList, onScanAgain }) => {
                     <input
                       type="number"
                       name="unit"
-                      value={formStates[index]?.unit || 0}
-                      onChange={(e) =>
-                        handleUnitChange(index, e.target.value, item.price)
-                      }
+                      value={unit}
+                      onChange={(e) => handleUnitChange(e, item.price)}
                     />
                   </div>
                   <div className={styles.price}>
-                    <h4>Total: {formStates[index]?.total || 0}</h4>
-                  </div>
-                </div>
-
-                <div className={styles.card}>
-                  <div className={styles.buttonGroup}>
-                    <button
-                      onClick={() => copyToClipboard(item.barcode)}
-                      className={styles.buttonSecondary}
-                    >
-                      <Copy size={18} />
-                      <span>Copy</span>
-                    </button>
-
-                    <button
-                      onClick={() => handleAddToList(index)}
-                      className={styles.buttonSecondary}
-                    >
-                      <Plus size={18} />
-                      <span>Add to List</span>
-                    </button>
+                    <h4>Total: {item.price * unit}</h4>
                   </div>
                 </div>
               </ul>
@@ -205,6 +190,18 @@ const ScanResult = ({ result, onAddToList, onScanAgain }) => {
       </div>
 
       <div className={styles.card}>
+        <div className={styles.buttonGroup}>
+          <button onClick={copyToClipboard} className={styles.buttonSecondary}>
+            <Copy size={18} />
+            <span>Copy</span>
+          </button>
+
+          <button onClick={handleAddToList} className={styles.buttonSecondary}>
+            <Plus size={18} />
+            <span>Add to List</span>
+          </button>
+        </div>
+
         <button onClick={onScanAgain} className={styles.buttonPrimary}>
           <Scan size={18} />
           <span>Scan Again</span>
