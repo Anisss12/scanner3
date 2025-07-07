@@ -2,17 +2,20 @@
 
 import React, { useRef, useEffect, useState } from "react";
 import { toast } from "sonner";
-import { Frown, ScanBarcode } from "lucide-react";
+import { Frown, ScanBarcode, Keyboard } from "lucide-react";
 import styles from "./Scanner.module.css";
 
 const Scanner = ({ onScanned }) => {
   const videoRef = useRef(null);
   const timerRef = useRef(null);
   const countdownRef = useRef(null);
+  const manualInputRef = useRef(null);
   const [scanning, setScanning] = useState(false);
   const [detector, setDetector] = useState(null);
   const [timeLeft, setTimeLeft] = useState(10);
   const [noBarcodeDetected, setNoBarcodeDetected] = useState(false);
+  const [manualCode, setManualCode] = useState("");
+  const [showManualInput, setShowManualInput] = useState(false);
 
   // Initialize Barcode Detector
   useEffect(() => {
@@ -64,7 +67,6 @@ const Scanner = ({ onScanned }) => {
     if (scanning && detector) {
       startScanner();
       resetCountdown();
-      // Set a timer to stop scanning after 10 seconds if no barcode detected
       timerRef.current = setTimeout(() => {
         setNoBarcodeDetected(true);
         stopScanner();
@@ -78,12 +80,18 @@ const Scanner = ({ onScanned }) => {
     return () => setScanning(false);
   }, []);
 
-  // Start the camera and scanning process
+  useEffect(() => {
+    if (showManualInput && manualInputRef.current) {
+      manualInputRef.current.focus();
+    }
+  }, [showManualInput]);
+
   const startScanner = async () => {
     if (!videoRef.current || !detector) return;
     try {
       setNoBarcodeDetected(false);
-      setTimeLeft(10); // Reset countdown
+      setTimeLeft(10);
+      setShowManualInput(false);
       const stream = await navigator.mediaDevices.getUserMedia({
         video: {
           facingMode: "environment",
@@ -98,16 +106,15 @@ const Scanner = ({ onScanned }) => {
       console.error("Camera access error:", error);
       toast.error("Error accessing the camera.");
       setScanning(false);
+      setShowManualInput(true); // Fallback to manual input if camera fails
     }
   };
 
-  // Barcode scanning loop
   const scanBarcode = async () => {
     if (!scanning || !detector || !videoRef.current) return;
     try {
       const barcodes = await detector.detect(videoRef.current);
       if (barcodes.length > 0) {
-        // Barcode detected—stop scanner, clear timers, and notify parent
         const result = barcodes[0].rawValue;
         stopScanner();
         onScanned(result);
@@ -120,7 +127,6 @@ const Scanner = ({ onScanned }) => {
     }
   };
 
-  // Stop scanning and clear timers
   const stopScanner = () => {
     setScanning(false);
     if (videoRef.current?.srcObject) {
@@ -131,7 +137,6 @@ const Scanner = ({ onScanned }) => {
     if (countdownRef.current) clearInterval(countdownRef.current);
   };
 
-  // Reset and start the countdown timer
   const resetCountdown = () => {
     setTimeLeft(10);
     if (countdownRef.current) clearInterval(countdownRef.current);
@@ -146,14 +151,33 @@ const Scanner = ({ onScanned }) => {
     }, 1000);
   };
 
-  // Restart scanning (called when user clicks the restart button)
   const handleRestart = () => {
-    // Clear any existing timers and restart scanning
     if (timerRef.current) clearTimeout(timerRef.current);
     if (countdownRef.current) clearInterval(countdownRef.current);
     setNoBarcodeDetected(false);
     setTimeLeft(10);
     setScanning(true);
+    setShowManualInput(false);
+  };
+
+  const handleManualSubmit = () => {
+    if (manualCode.trim() !== "") {
+      onScanned(manualCode.trim());
+      setManualCode("");
+      setShowManualInput(false);
+    } else {
+      toast.warning("Please enter a valid code.");
+    }
+  };
+
+  const toggleManualInput = () => {
+    if (showManualInput) {
+      setShowManualInput(false);
+      handleRestart();
+    } else {
+      stopScanner();
+      setShowManualInput(true);
+    }
   };
 
   return (
@@ -175,18 +199,50 @@ const Scanner = ({ onScanned }) => {
           <h2 className={styles.timerDisplay}>{timeLeft}s</h2>
         </>
       )}
-
       {!scanning && noBarcodeDetected && (
         <div className={styles.noBarcodeMessage}>
           <Frown strokeWidth={1} size={200} />
           <h2>No barcode detected! Please try again.</h2>
         </div>
       )}
-
       {!scanning && (
-        <button className={styles.restartButton} onClick={handleRestart}>
-          Restart Scan <ScanBarcode strokeWidth={1.5} size={35} />
-        </button>
+        <div className={styles.buttonGroup}>
+          <button className={styles.restartButton} onClick={handleRestart}>
+            Restart Scan <ScanBarcode strokeWidth={1.5} size={35} />
+          </button>
+          <button
+            className={styles.manualToggleButton}
+            onClick={toggleManualInput}
+          >
+            {showManualInput ? (
+              <>
+                Use Scanner <ScanBarcode strokeWidth={1.5} size={35} />
+              </>
+            ) : (
+              <>
+                Manual Input <Keyboard strokeWidth={1.5} size={35} />
+              </>
+            )}
+          </button>
+        </div>
+      )}
+
+      {/* Manual Input Option */}
+      {showManualInput && (
+        <div className={styles.manualInputWrapper}>
+          <input
+            ref={manualInputRef}
+            className={styles.inputBarcode}
+            type="text"
+            placeholder="Enter code manually"
+            value={manualCode}
+            onChange={(e) => setManualCode(e.target.value)}
+            onKeyDown={(e) => e.key === "Enter" && handleManualSubmit()}
+          />
+          <button className={styles.submitManualBtn} onClick={handleManualSubmit}>
+            Submit
+          </button>
+        </div>
       )}
     </div>
   );
