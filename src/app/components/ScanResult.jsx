@@ -23,20 +23,22 @@ const ScanResult = ({ result, onAddToList, onScanAgain }) => {
   useEffect(() => {
     const fetchingData = async () => {
       try {
-        const response = await fetch("/api/saveData");
+        const response = await fetch(`/api/saveData?barcode=${result}`);
         if (!response.ok) {
           throw new Error("Network response was not ok");
         }
-        const result = await response.json();
-        setData(result);
-        setFilteredData(result); // Initialize filtered data with all data
+        const resultData = await response.json();
+        setData(resultData);
+        setFilteredData(resultData);
       } catch (error) {
         console.error("Fetch error:", error);
       }
     };
 
-    fetchingData();
-  }, []);
+    if (result) {
+      fetchingData();
+    }
+  }, [result]);
 
   useEffect(() => {
     // Filtering the data based on result
@@ -106,8 +108,9 @@ const ScanResult = ({ result, onAddToList, onScanAgain }) => {
     }));
   };
 
-  const handleAddToList = () => {
-    onAddToList(tradeData);
+  const handleAddToList = (tradeData) => {
+    // Your logic here, e.g., add to a list or state
+    console.log("Added to list:", tradeData);
   };
 
   return (
@@ -220,6 +223,11 @@ const ScanResult = ({ result, onAddToList, onScanAgain }) => {
       </div>
     </div>
   );
+};
+
+ScanResult.defaultProps = {
+  onAddToList: () => {},
+  onScanAgain: () => {},
 };
 
 export default ScanResult;
