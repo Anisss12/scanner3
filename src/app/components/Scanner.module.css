@@ -161,3 +161,59 @@
   height: 10vh;
   width: 10vh;
 }
+.buttonGroup {
+  display: flex;
+  gap: 1rem;
+  margin-top: 1rem;
+  width: 100%;
+  justify-content: center;
+}
+
+.manualToggleButton {
+  padding: 0.75rem 1.5rem;
+  background-color: #4b5563;
+  color: white;
+  border: none;
+  border-radius: 0.5rem;
+  font-size: 1rem;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  transition: background-color 0.2s;
+}
+
+.manualToggleButton:hover {
+  background-color: #374151;
+}
+
+.manualInputWrapper {
+  margin-top: 1rem;
+  width: 100%;
+  max-width: 500px;
+  display: flex;
+  gap: 0.5rem;
+}
+
+.inputBarcode {
+  flex: 1;
+  padding: 0.75rem;
+  border: 1px solid #d1d5db;
+  border-radius: 0.5rem;
+  font-size: 1rem;
+}
+
+.submitManualBtn {
+  padding: 0 1.5rem;
+  background-color: #3b82f6;
+  color: white;
+  border: none;
+  border-radius: 0.5rem;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+.submitManualBtn:hover {
+  background-color: #2563eb;
+}
