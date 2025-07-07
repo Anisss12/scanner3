@@ -70,11 +70,15 @@ const ScannedList = ({ items, onClearItem, onClearAll }) => {
       (filterDesign === "" || item.design === filterDesign) &&
       (filterSizes === "" || item.sizes === filterSizes) &&
       (filterColors === "" || item.colors === filterColors) &&
-      (item.name.toLowerCase().includes(searchQuery.toLowerCase()) ||
-        item.barcode.toLowerCase().includes(searchQuery.toLowerCase()) ||
-        item.design.toLowerCase().includes(searchQuery.toLowerCase()) ||
-        item.sizes.toLowerCase().includes(searchQuery.toLowerCase()) ||
-        item.colors.toLowerCase().includes(searchQuery.toLowerCase()))
+      ((item.name?.toLowerCase() || "").includes(searchQuery.toLowerCase()) ||
+        (item.barcode?.toLowerCase() || "").includes(
+          searchQuery.toLowerCase()
+        ) ||
+        (item.design?.toLowerCase() || "").includes(
+          searchQuery.toLowerCase()
+        ) ||
+        (item.sizes?.toLowerCase() || "").includes(searchQuery.toLowerCase()) ||
+        (item.colors?.toLowerCase() || "").includes(searchQuery.toLowerCase()))
   );
 
   const totalItems = filteredItems.length;
@@ -423,8 +427,8 @@ const ScannedList = ({ items, onClearItem, onClearAll }) => {
             className={styles.filterSelect}
           >
             <option value="">Select</option>
-            {uniqueNames.map((name) => (
-              <option key={name} value={name}>
+            {uniqueNames.map((name, idx) => (
+              <option key={`${name ?? "unknown"}-${idx}`} value={name}>
                 {name}
               </option>
             ))}
@@ -441,9 +445,9 @@ const ScannedList = ({ items, onClearItem, onClearAll }) => {
             onChange={(e) => setFilterBarcode(e.target.value)}
             className={styles.filterSelect}
           >
-            <option value="">Selet</option>
-            {uniqueBarcodes.map((barcode) => (
-              <option key={barcode} value={barcode}>
+            <option value="">Select</option>
+            {uniqueBarcodes.map((barcode, idx) => (
+              <option key={`${barcode ?? "unknown"}-${idx}`} value={barcode}>
                 {barcode}
               </option>
             ))}
@@ -461,8 +465,8 @@ const ScannedList = ({ items, onClearItem, onClearAll }) => {
             className={styles.filterSelect}
           >
             <option value="">Select</option>
-            {uniqueDesigns.map((design) => (
-              <option key={design} value={design}>
+            {uniqueDesigns.map((design, idx) => (
+              <option key={`${design ?? "unknown"}-${idx}`} value={design}>
                 {design}
               </option>
             ))}
@@ -480,8 +484,8 @@ const ScannedList = ({ items, onClearItem, onClearAll }) => {
             className={styles.filterSelect}
           >
             <option value="">Select</option>
-            {uniqueSizes.map((sizes) => (
-              <option key={sizes} value={sizes}>
+            {uniqueSizes.map((sizes, idx) => (
+              <option key={`${sizes ?? "unknown"}-${idx}`} value={sizes}>
                 {sizes}
               </option>
             ))}
@@ -498,8 +502,8 @@ const ScannedList = ({ items, onClearItem, onClearAll }) => {
             className={styles.filterSelect}
           >
             <option value="">Select</option>
-            {uniqueColors.map((colors) => (
-              <option key={colors} value={colors}>
+            {uniqueColors.map((colors, idx) => (
+              <option key={`${colors ?? "unknown"}-${idx}`} value={colors}>
                 {colors}
               </option>
             ))}
